@@ -1,0 +1,325 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  color: #172033;
+  background: #f6f8fc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #f6f8fc;
+}
+
+button {
+  font: inherit;
+}
+
+/* =========================
+   ESTRUCTURA PRINCIPAL
+========================= */
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f6f8fc;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+
+  display: flex;
+  width: 184px;
+  min-height: 100vh;
+
+  flex-direction: column;
+
+  padding: 18px 14px 16px;
+
+  color: #dce7f5;
+  background: #1d2f46;
+}
+
+/* Logo / nombre */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 38px;
+
+  padding: 0 8px;
+  margin-bottom: 20px;
+
+  color: #f7fbff;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.brand-mark {
+  display: grid;
+
+  width: 23px;
+  height: 23px;
+
+  place-items: center;
+
+  border-radius: 6px;
+
+  color: #fff;
+  background: #2f69df;
+
+  font-size: 11px;
+  line-height: 1;
+
+  box-shadow: 0 3px 8px rgba(18, 68, 155, 0.25);
+}
+
+/* Menú */
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-item {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+  gap: 10px;
+
+  border: 0;
+  border-radius: 6px;
+
+  padding: 10px;
+
+  color: #c4d0df;
+  background: transparent;
+
+  text-align: left;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.nav-item:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.nav-item.active {
+  color: #fff;
+  background: #2867df;
+
+  box-shadow: 0 4px 10px rgba(25, 83, 190, 0.2);
+}
+
+.nav-item svg {
+  flex: 0 0 auto;
+}
+
+/* Configuración abajo */
+
+.settings-item {
+  margin-top: auto;
+}
+
+/* =========================
+   CONTENIDO PRINCIPAL
+========================= */
+
+.main-shell {
+  width: calc(100% - 184px);
+  min-height: 100vh;
+
+  margin-left: 184px;
+}
+
+/* =========================
+   BARRA SUPERIOR
+========================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+
+  min-height: 64px;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 26px;
+
+  border-bottom: 1px solid #edf0f5;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  backdrop-filter: blur(8px);
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+/* =========================
+   USUARIO
+========================= */
+
+.user-menu {
+  display: flex;
+
+  align-items: center;
+  gap: 9px;
+
+  padding: 4px 6px 4px 4px;
+
+  border: 0;
+  border-radius: 9px;
+
+  color: #647084;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.user-menu:hover {
+  background: #f5f7fb;
+}
+
+.avatar {
+  display: grid;
+
+  width: 32px;
+  height: 32px;
+
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  color: #fff;
+
+  background: linear-gradient(
+    145deg,
+    #d4a47c,
+    #6e4c3d
+  );
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.user-copy {
+  display: flex;
+
+  min-width: 66px;
+
+  flex-direction: column;
+  align-items: flex-start;
+
+  line-height: 1.15;
+}
+
+.user-copy strong {
+  color: #253147;
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.user-copy span {
+  margin-top: 3px;
+
+  color: #8a94a5;
+
+  font-size: 10px;
+}
+
+.chevron {
+  color: #7b8596;
+}
+
+/* =========================
+   ÁREA DE CONTENIDO
+========================= */
+
+.page-content {
+  min-height: calc(100vh - 64px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 72px;
+    padding-inline: 9px;
+  }
+
+  .brand {
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .brand > span,
+  .nav-item span {
+    display: none;
+  }
+
+  .nav-item {
+    justify-content: center;
+    padding: 11px 8px;
+  }
+
+  .main-shell {
+    width: calc(100% - 72px);
+    margin-left: 72px;
+  }
+
+  .topbar {
+    padding-inline: 12px;
+  }
+
+  .user-copy,
+  .chevron {
+    display: none;
+  }
+}
